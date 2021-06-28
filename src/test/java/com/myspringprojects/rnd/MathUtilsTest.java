@@ -47,6 +47,18 @@ class MathUtilsTest {
     }
 
     @Test
+    @DisplayName("Multiply Method Tests")
+    void testMultiply() {
+        // assertEquals(4, mathUtils.multiply(2, 2), "Should return the right product");
+        assertAll(
+                () -> assertEquals(4, mathUtils.multiply(2, 2)),
+                () -> assertEquals(0, mathUtils.multiply(2, 0)),
+                () -> assertEquals(-2, mathUtils.multiply(2, -1)),
+                () -> assertEquals(2, mathUtils.multiply(2, 1))
+        );
+    }
+
+    @Test
     @DisplayName("Disabled method should not run")
     @Disabled
     void testDisbledAnnotation() {
