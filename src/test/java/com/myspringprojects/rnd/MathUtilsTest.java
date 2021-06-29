@@ -9,10 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class MathUtilsTest {
 
     private MathUtils mathUtils;
+    private TestInfo testInfo;
+    private TestReporter testReporter;
 
     @BeforeEach
-    void setup() {
+    void setup(TestInfo testInfo, TestReporter testReporter) {
         mathUtils = new MathUtils();
+        this.testInfo = testInfo;
+        this.testReporter = testReporter;
     }
 
     @AfterAll
@@ -63,6 +67,7 @@ class MathUtilsTest {
     @Tag("Math")
     @DisplayName("Multiply Method Tests")
     void testMultiply() {
+        testReporter.publishEntry("Running " + testInfo.getDisplayName() + " with tags " + testInfo.getTags());
         // assertEquals(4, mathUtils.multiply(2, 2), "Should return the right product");
         assertAll(
                 () -> assertEquals(4, mathUtils.multiply(2, 2)),
