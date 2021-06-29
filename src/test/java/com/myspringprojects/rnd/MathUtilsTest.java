@@ -22,6 +22,7 @@ class MathUtilsTest {
 
     @Nested
     @DisplayName("add method")
+    @Tag("Math")
     class AddTest {
 
         @Test
@@ -39,6 +40,7 @@ class MathUtilsTest {
     }
 
     @RepeatedTest(3)
+    @Tag("Circle")
     void testComputeCircleArea(RepetitionInfo repetitionInfo) {
         double radius = 10.0;
         double expected = Math.PI * radius * radius;
@@ -47,6 +49,7 @@ class MathUtilsTest {
     }
 
     @Test
+    @Tag("Math")
     @DisplayName("Exception when dividing with zero")
     void testDivideWithZero() {
         assertThrows(
@@ -57,6 +60,7 @@ class MathUtilsTest {
     }
 
     @Test
+    @Tag("Math")
     @DisplayName("Multiply Method Tests")
     void testMultiply() {
         // assertEquals(4, mathUtils.multiply(2, 2), "Should return the right product");
