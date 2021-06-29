@@ -39,7 +39,7 @@ class MathUtilsTest {
     }
 
     @RepeatedTest(3)
-    void testComputeCircleArea() {
+    void testComputeCircleArea(RepetitionInfo repetitionInfo) {
         double radius = 10.0;
         double expected = Math.PI * radius * radius;
         double actual = mathUtils.computeCircleArea(radius);
