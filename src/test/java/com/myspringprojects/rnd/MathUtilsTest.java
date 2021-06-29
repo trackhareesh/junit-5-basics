@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("When running MathUtils")
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
 class MathUtilsTest {
 
@@ -19,12 +20,21 @@ class MathUtilsTest {
         System.out.println("Cleaning Up");
     }
 
-    @Test
-    @DisplayName("Add two positive numbers")
-    void testAdd() {
-        int expected = 2;
-        int actual = mathUtils.add(1, 1);
-        assertEquals(expected, actual, "The add method should add 2 numbers");
+    @Nested
+    @DisplayName("add method")
+    class AddTest {
+
+        @Test
+        @DisplayName("when adding two positive numbers")
+        void testAddPositive() {
+            assertEquals(2, mathUtils.add(1, 1), "should add 2 numbers");
+        }
+
+        @Test
+        @DisplayName("when adding two negative numbers")
+        void testAddNegative() {
+            assertEquals(1, mathUtils.add(2, -1), "should add 2 numbers");
+        }
 
     }
 
